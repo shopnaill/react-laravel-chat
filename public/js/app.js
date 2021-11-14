@@ -2231,7 +2231,7 @@ var Chatpanel = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var tok = document.querySelector('meta[name="csrf-token"]').content;
-      fetch('https://chat.sonorcastle.com/fetchUsers', {
+      fetch('/fetchUsers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -2306,7 +2306,7 @@ var Chatpanel = /*#__PURE__*/function (_React$Component) {
 
       var tok = document.querySelector('meta[name="csrf-token"]').content; // alert(el_id.target.id);
 
-      fetch('https://chat.sonorcastle.com/fetchmessages?rec_id=' + clicked_user_id, {
+      fetch('/fetchmessages?rec_id=' + clicked_user_id, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -2344,7 +2344,7 @@ var Chatpanel = /*#__PURE__*/function (_React$Component) {
       var msg = document.getElementById('chat_tbox').value;
       var tok = document.querySelector('meta[name="csrf-token"]').content;
       var activeUserId = this.state.active_user[0].id;
-      fetch('https://chat.sonorcastle.com/messages?message=' + msg + '&rec_id=' + activeUserId, {
+      fetch('/messages?message=' + msg + '&rec_id=' + activeUserId, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
