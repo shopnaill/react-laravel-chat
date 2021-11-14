@@ -44,7 +44,7 @@ class Chatpanel extends React.Component {
 
 
 
-        fetch('http://127.0.0.1:8000/fetchUsers',{
+        fetch('https://chat.sonorcastle.com/fetchUsers',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
@@ -105,7 +105,7 @@ class Chatpanel extends React.Component {
         }
         let tok = document.querySelector('meta[name="csrf-token"]').content;
         // alert(el_id.target.id);
-        fetch('http://127.0.0.1:8000/fetchmessages?rec_id='+clicked_user_id,{
+        fetch('https://chat.sonorcastle.com/fetchmessages?rec_id='+clicked_user_id,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
@@ -143,7 +143,7 @@ class Chatpanel extends React.Component {
         let activeUserId = this.state.active_user[0].id;
     
 
-        fetch('http://127.0.0.1:8000/messages?message='+msg+'&rec_id='+activeUserId,{
+        fetch('https://chat.sonorcastle.com/messages?message='+msg+'&rec_id='+activeUserId,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
