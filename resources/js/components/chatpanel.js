@@ -42,7 +42,7 @@ class Chatpanel extends React.Component {
         let tok = document.querySelector('meta[name="csrf-token"]').content;
 
 
-
+        console.log('token : '+tok);
 
         fetch('/fetchUsers',{
             method:'POST',

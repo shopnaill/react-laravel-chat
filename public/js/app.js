@@ -2231,6 +2231,7 @@ var Chatpanel = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var tok = document.querySelector('meta[name="csrf-token"]').content;
+      console.log('token : ' + tok);
       fetch('/fetchUsers', {
         method: 'POST',
         headers: {
