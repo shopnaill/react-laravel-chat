@@ -38,7 +38,7 @@ class ChatsController extends Controller
                  */
                 public function fetchMessages(Request $req)
                 {
-                $sender_id = Auth::user()->id;
+                $sender_id =  $req->input('user_id');
                 $rec_id = $req->input('rec_id');
                 $msg_list = DB::select('select * from messages where sender_id in ('.$sender_id.','.$rec_id.') and rec_id in ('.$sender_id.','.$rec_id.')');
                 //$msg_list = Message::where('sender_id',$sender_id)->first();
@@ -53,7 +53,7 @@ class ChatsController extends Controller
              */
             public function sendMessage(Request $request)
             {
-            $user = Auth::user();
+            $user = User::where('id', $request->input('user_id'))->first();
 
             $m = new Message();
             $m->sender_id = $user->id;

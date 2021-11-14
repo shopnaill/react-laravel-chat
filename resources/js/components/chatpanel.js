@@ -106,11 +106,12 @@ class Chatpanel extends React.Component {
         }
         let tok = document.querySelector('meta[name="csrf-token"]').content;
         // alert(el_id.target.id);
-        fetch('/fetchmessages?rec_id='+clicked_user_id,{
+        fetch('/api/fetchmessages?rec_id='+clicked_user_id + '&user_id='+user.id,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
                 X_CSRF_TOKEN:tok,
+                'X-Authorization' : 'NIoBUbTx4jYgwcxm0PICeNFnNFalgBq0PUXB7Ar0QYH4Y3qr9cIeTpqusZISflcN',
                 'Accept':'application/json'
             }
         })
@@ -144,11 +145,12 @@ class Chatpanel extends React.Component {
         let activeUserId = this.state.active_user[0].id;
     
 
-        fetch('/messages?message='+msg+'&rec_id='+activeUserId,{
+        fetch('/api/messages?message='+msg+'&rec_id='+activeUserId + '&user_id=' + user.id,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
                 'X-CSRF-TOKEN':tok,
+                'X-Authorization' : 'NIoBUbTx4jYgwcxm0PICeNFnNFalgBq0PUXB7Ar0QYH4Y3qr9cIeTpqusZISflcN',
                 'Accept':'application/json'
             },
             //body:JSON.stringify(data)
