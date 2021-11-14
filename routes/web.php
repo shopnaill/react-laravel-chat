@@ -18,7 +18,7 @@ use App\Http\Controllers\ChatsController;
 Auth::routes();
 
   
-Route::get('/',  [ChatsController::class , 'index']);
+Route::get('/',  [HomeController::class , 'index']);
 Route::post('fetchmessages',  [ChatsController::class , 'fetchmessages']);
 Route::post('messages',  [ChatsController::class , 'sendMessage']);
 Route::post('fetchUsers',  [ChatsController::class , 'fetchUsers']);

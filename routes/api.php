@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('fetchmessages',  [ChatsController::class , 'fetchmessages'])->middleware('auth.apikey');
+Route::post('messages',  [ChatsController::class , 'sendMessage'])->middleware('auth.apikey');
+Route::post('fetchUsers/{user_id}',  [ChatsController::class , 'fetchUsers'])->middleware('auth.apikey');

@@ -44,11 +44,12 @@ class Chatpanel extends React.Component {
 
         console.log('token : '+tok);
 
-        fetch('/fetchUsers',{
+        fetch('/api/fetchUsers/' + user.id,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
-                X_CSRF_TOKEN:tok,
+            //    X_CSRF_TOKEN:tok,
+                'X-Authorization' : 'NIoBUbTx4jYgwcxm0PICeNFnNFalgBq0PUXB7Ar0QYH4Y3qr9cIeTpqusZISflcN',
                 'Accept':'application/json'
             }
         })

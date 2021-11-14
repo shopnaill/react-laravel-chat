@@ -15,25 +15,17 @@ class ChatsController extends Controller
     //
         public function __construct()
         {
-          $this->middleware('auth');
+           $this->middleware('auth.apikey');
         }
+ 
 
-        public function index()
-        {
-            $user = Auth::user();
-           broadcast(new OnlineUser($user))->toOthers();
-
-          return view('home');
-        }
-
-        public function fetchUsers(){
+        public function fetchUsers($user_id){
             $user_arr = array();
-            $arr = User::all();
-            foreach($arr as $a){
-              if($a->id == Auth::user()->id){}
-              else{
-                array_push($user_arr,$a);
-              }
+            $arr = User::where('id', '<>', $user_id)->get();
+             foreach($arr as $a){
+             
+                 array_push($user_arr,$a);
+          
             }
             return json_encode($user_arr);
           }
